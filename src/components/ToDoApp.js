@@ -25,28 +25,24 @@ export default function ToDoApp() {
     }
 
     return (
-        <>
-        <div className='task-input'>
-        <input placeholder='Enter a task here ..'
+        <div className='wrapper'>
+            <div className='task-input-container'>
+                <input placeholder='Enter a task here ..'
                     value={inputText}
                     onChange={handleChange}
-                    onKeyPress={handleKeyPress}
+                    onKeyPress={handleKeyPress} 
                 />
+                <button onClick={handleClick}
+                    onKeyDown={e => e.key === 'Enter' ? handleClick :''}>+</button>
             </div>
-                   {/* <button onClick={handleClick}
-               onKeyDown={e => e.key === 'Enter' ? handleClick :
-                   ''}>+</button> */}
-                <div className='task-container'>
-
-                 
-                
+            <div className='tasks-container'>
                 {taskList.map((task, index) => (
                     <div key={index} className='task-item'>
                         {task}
                     </div>
                 ))}
             </div>
-        </>
+        </div>
 
     )
 }
